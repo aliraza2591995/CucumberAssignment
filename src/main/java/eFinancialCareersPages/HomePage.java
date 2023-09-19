@@ -1,7 +1,6 @@
 package eFinancialCareersPages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,12 +12,10 @@ public class HomePage {
     private WebDriver driver;
     private By signIn = By.xpath("//button[@class='btn btn-secondary btn-medium ng-star-inserted']");
     private By overLayText = By.xpath("//span[text()='Welcome to your next opportunity']");
-    private By emailInput = By.xpath("//input[@name='email']");
+    private By emailInput = By.xpath("//input[@placeholder='Email']");
     private By continueButton = By.xpath("//button[text() = 'Continue']");
     private By passwordInput = By.xpath("//input[@name='password']");
     private By submitCredentialsButton = By.xpath("//button[text()='Submit']");
-    private By jobSearchField = By.xpath("//input[@placeholder='Job title, keyword or company']");
-    private By locationField = By.xpath("//input[@placeholder='Location']");
     private By profileButton = By.xpath("//div[@id='button-basic']");
     private By profileName = By.xpath("//*[@id=\"dropdown-avatar-container\"]/div/span[1]");
     public HomePage(WebDriver driver){
@@ -33,6 +30,8 @@ public class HomePage {
         return overlayElement.getText();
     }
     public void enterEmail(String email){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput));
         driver.findElement(emailInput).sendKeys(email);
         driver.findElement(continueButton).click();
     }
@@ -50,11 +49,7 @@ public class HomePage {
     public String checkLoginStatus(){
         return driver.findElement(profileName).getText();
     }
-    public JobSearchPage jobSearch(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement jobSearchElement = wait.until(ExpectedConditions.visibilityOfElementLocated(jobSearchField));
-        jobSearchElement.sendKeys("QA Engineer");
-        driver.findElement(locationField).sendKeys("America" + Keys.ENTER);
+    public JobSearchPage page(){
         return new JobSearchPage(driver);
     }
 }

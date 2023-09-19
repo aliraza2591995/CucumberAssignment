@@ -19,6 +19,8 @@ public class JobPage {
     private By uploadButton = By.xpath("//*[@id=\"__filestack-picker\"]/div/div/div[1]/div[2]/div[3]/div/span[3]/div/span");
     private By clearCV = By.cssSelector("body > modal-container > div.efc-standard-modal.modal-dialog > div > efc-job-application-container > div > efc-job-application > div > form > div:nth-child(2) > div.row > efc-form-dropdown-input > div > span > efc-icon.close > span > svg");
     private By newCVlink = By.xpath("//*[@id=\"dropdown-file-list\"]/li[1]/div");
+    private By jobLink = By.xpath("//*[@id=\"rbVRgNtRyil1iTia\"]/h3");
+    private By apply = By.xpath("/html/body/modal-container/div[2]/div/efc-job-application-container/div/efc-job-application/div/form/div[4]/div/button/span");
     public JobPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -67,6 +69,11 @@ public class JobPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(modalTitle));
         return driver.findElement(modalTitle).getText();
     }
+    public void clickJobLink() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement jobLinkElement = wait.until(ExpectedConditions.visibilityOfElementLocated(jobLink));
+        jobLinkElement.click();
+    }
 
     public void loadNewCV() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -75,5 +82,10 @@ public class JobPage {
         clickUploadCV();
         wait.until(ExpectedConditions.visibilityOfElementLocated(newCVlink));
         driver.findElement(newCVlink).click();
+    }
+    public void apply(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(apply));
+        driver.findElement(apply).click();
     }
 }

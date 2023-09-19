@@ -10,3 +10,14 @@ Feature: Login Functionality
     Examples:
       | email                  | password   |
       | aliomessi.19@gmail.com | Aliraza.10 |
+      | ali@example.com        | Aliraza.10 |
+
+  Scenario Outline: Job Application
+    Given User is on job search page, logged in and enters valid '<jobTitle>' and '<location>'
+    When User clicks a job link, the user should be taken to job page
+    Then User clicks Apply now
+    And User uploads CV
+    Examples:
+      | jobTitle    | location |
+      | QA Engineer | America  |
+      | abc         | xyz      |

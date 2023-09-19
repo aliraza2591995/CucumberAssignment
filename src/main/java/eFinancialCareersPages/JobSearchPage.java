@@ -1,6 +1,7 @@
 package eFinancialCareersPages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +12,8 @@ import java.time.Duration;
 public class JobSearchPage {
     private WebDriver driver;
     private By searchResultText = By.xpath("//h1[contains(text(), 'QA Engineer')]");
-    private By jobLink = By.xpath("//*[@id=\"rbVRgNtRyil1iTia\"]/h3");
+    private By jobSearchField = By.xpath("//input[@placeholder='Job title, keyword or company']");
+    private By locationField = By.xpath("//input[@placeholder='Location']");
     public JobSearchPage(WebDriver driver){
         this.driver = driver;
     }
@@ -20,10 +22,14 @@ public class JobSearchPage {
         WebElement searchResultElement = wait.until(ExpectedConditions.visibilityOfElementLocated(searchResultText));
         return searchResultElement.getText();
     }
-    public JobPage clickJobLink(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        WebElement jobLinkElement = wait.until(ExpectedConditions.visibilityOfElementLocated(jobLink));
-        jobLinkElement.click();
+
+    public void jobSearch(String jobTitle, String location) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement jobSearchElement = wait.until(ExpectedConditions.visibilityOfElementLocated(jobSearchField));
+        jobSearchElement.sendKeys(jobTitle);
+        driver.findElement(locationField).sendKeys(location + Keys.ENTER);
+    }
+    public JobPage page(){
         return new JobPage(driver);
     }
 }
