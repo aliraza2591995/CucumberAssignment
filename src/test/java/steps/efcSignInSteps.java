@@ -33,7 +33,6 @@ public class efcSignInSteps {
     @Given("User is on the SignIn page of eFinancialCareers")
     public void userIsOnTheSignInPageOfEFinancialCareers() {
         homePage.clickSignIn();
-        System.out.println(homePage.getOverlayText());
         assertEquals(homePage.getOverlayText(), "Welcome to your next opportunity", "Didn't clicked login button correctly");
     }
 
@@ -46,7 +45,6 @@ public class efcSignInSteps {
     @Then("User should be logged in")
     public void userShouldBeLoggedIn() {
         homePage.clickProfileButton();
-        System.out.println(homePage.checkLoginStatus());
         assertEquals(homePage.checkLoginStatus(), "Ali Raza", "Login failed");
     }
 
@@ -63,7 +61,6 @@ public class efcSignInSteps {
 
         jobSearchPage = homePage.page();
         jobSearchPage.jobSearch(jobTitle, location);
-        System.out.println(jobSearchPage.getJobSearchResultText());
         assertTrue(jobSearchPage.getJobSearchResultText().contains("QA Engineer jobs"), "Job search failed");
     }
 
@@ -71,14 +68,12 @@ public class efcSignInSteps {
     public void userClicksAJobLinkTheUserShouldBeTakenToJobPage() {
         jobPage = jobSearchPage.page();
         jobPage.clickJobLink();
-        System.out.println(jobPage.checkJobPageStatus());
         assertEquals(jobPage.checkJobPageStatus(), "Apply now", "Click job link failed");
     }
 
     @Then("User clicks Apply now")
     public void userClicksApplyNow() {
         jobPage.applyForJob();
-        System.out.println(jobPage.checkJobApplicationModal());
         assertEquals(jobPage.checkJobApplicationModal(), "Your application", "Job application modal not found");
     }
 
@@ -86,7 +81,6 @@ public class efcSignInSteps {
     public void userUploadsCV() {
         By hiddenElement = By.xpath("//*[@id=\"fsp-fileUpload\"]");
         jobPage.loadNewCV();
-        System.out.println(jobPage.fileDropAreaText());
         assertEquals(jobPage.fileDropAreaText(), "Select Files to Upload", "File drop area not found");
         jobPage.unhiddenUploadElement(hiddenElement);
         jobPage.uploadCV();
