@@ -10,10 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class JobSearchPage {
-    private WebDriver driver;
-    private By searchResultText = By.xpath("//h1[contains(text(), 'QA Engineer')]");
-    private By jobSearchField = By.xpath("//input[@placeholder='Job title, keyword or company']");
-    private By locationField = By.xpath("//input[@placeholder='Location']");
+    private final WebDriver driver;
+    private final By searchResultText = By.xpath("//h1[contains(text(), 'QA Engineer')]");
+    private final By jobSearchField = By.xpath("//input[@placeholder='Job title, keyword or company']");
+    private final By locationField = By.xpath("//input[@placeholder='Location']");
     public JobSearchPage(WebDriver driver){
         this.driver = driver;
     }

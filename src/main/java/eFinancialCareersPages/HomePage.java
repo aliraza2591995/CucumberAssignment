@@ -9,15 +9,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class HomePage {
-    private WebDriver driver;
-    private By signIn = By.xpath("//button[@class='btn btn-secondary btn-medium ng-star-inserted']");
-    private By overLayText = By.xpath("//span[text()='Welcome to your next opportunity']");
-    private By emailInput = By.xpath("//input[@placeholder='Email']");
-    private By continueButton = By.xpath("//button[text() = 'Continue']");
-    private By passwordInput = By.xpath("//input[@name='password']");
-    private By submitCredentialsButton = By.xpath("//button[text()='Submit']");
-    private By profileButton = By.xpath("//div[@id='button-basic']");
-    private By profileName = By.xpath("//*[@id=\"dropdown-avatar-container\"]/div/span[1]");
+    private final WebDriver driver;
+    private final By signIn = By.xpath("//button[@class='btn btn-secondary btn-medium ng-star-inserted']");
+    private final By overLayText = By.xpath("//span[text()='Welcome to your next opportunity']");
+    private final By emailInput = By.xpath("//input[@placeholder='Email']");
+    private final By continueButton = By.xpath("//button[text() = 'Continue']");
+    private final By passwordInput = By.xpath("//input[@name='password']");
+    private final By submitCredentialsButton = By.xpath("//button[text()='Submit']");
+    private final By profileButton = By.xpath("//div[@id='button-basic']");
+    private final By profileName = By.xpath("//*[@id=\"dropdown-avatar-container\"]/div/span[1]");
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
