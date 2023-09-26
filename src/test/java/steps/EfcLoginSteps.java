@@ -7,7 +7,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
-
 import static org.testng.Assert.assertEquals;
 
 public class EfcLoginSteps extends Base {
@@ -22,8 +21,8 @@ public class EfcLoginSteps extends Base {
         assertEquals(homePage.getOverlayText(), "Welcome to your next opportunity", "Didn't clicked login button correctly");
     }
 
-    @When("User enters valid {string} and {string}")
-    public void userEntersValidEmailAndPassword(String email, String password) {
+    @When("User enters {string} and {string}")
+    public void userEntersEmailAndPassword(String email, String password) {
         homePage.enterEmail(email);
         homePage.enterPassword(password);
     }

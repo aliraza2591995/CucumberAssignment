@@ -14,7 +14,7 @@ import org.openqa.selenium.WebDriver;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class EfcJobApplication extends Base{
+public class EfcJobApplicationSteps extends Base{
     private WebDriver driver = Base.setup();
     private final HomePage homePage = new HomePage(driver);
     private JobPage jobPage;

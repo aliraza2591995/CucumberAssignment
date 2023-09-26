@@ -18,6 +18,8 @@ public class HomePage {
     private final By submitCredentialsButton = By.xpath("//button[text()='Submit']");
     private final By profileButton = By.xpath("//div[@id='button-basic']");
     private final By profileName = By.xpath("//*[@id=\"dropdown-avatar-container\"]/div/span[1]");
+    private final By homePageText = By.xpath("/html/body/efc-shell-root/efc-homepage/div[1]/efc-search-section/efc-job-search-headline/div/span[1]");
+    private final By myProfileButton = By.xpath("//div[text()='My Profile']");
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
@@ -51,5 +53,18 @@ public class HomePage {
     }
     public JobSearchPage page(){
         return new JobSearchPage(driver);
+    }
+    public String getHomePageText() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(homePageText));
+        return driver.findElement(homePageText).getText();
+    }
+    public void clickMyProfile() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(myProfileButton));
+        driver.findElement(myProfileButton).click();
+    }
+    public ProfilePage ProfilePage() {
+        return new ProfilePage(driver);
     }
 }

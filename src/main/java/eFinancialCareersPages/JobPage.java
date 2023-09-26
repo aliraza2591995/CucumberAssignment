@@ -19,7 +19,7 @@ public class JobPage {
     private final By uploadButton = By.xpath("//*[@id=\"__filestack-picker\"]/div/div/div[1]/div[2]/div[3]/div/span[3]/div/span");
     private final By clearCV = By.cssSelector("body > modal-container > div.efc-standard-modal.modal-dialog > div > efc-job-application-container > div > efc-job-application > div > form > div:nth-child(2) > div.row > efc-form-dropdown-input > div > span > efc-icon.close > span > svg");
     private final By newCVlink = By.xpath("//*[@id=\"dropdown-file-list\"]/li[1]/div");
-    private final By jobLink = By.xpath("(//h3)[1]");
+    private final By jobLink = By.xpath("/html/body/efc-shell-root/efc-job-search-page/div[2]/div/div/div/div/efc-job-search-results/div/div[2]/efc-job-card[1]/div/div[2]/efc-card-details/div[1]/div[2]/a");
     private final By apply = By.xpath("//button[@type='submit']");
     public JobPage(WebDriver driver) {
         this.driver = driver;
