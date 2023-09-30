@@ -1,6 +1,6 @@
 package steps;
 
-import base.Base;
+import baseStep.Base;
 import eFinancialCareersPages.HomePage;
 import eFinancialCareersPages.JobPage;
 import eFinancialCareersPages.JobSearchPage;

@@ -1,6 +1,6 @@
 package steps;
 
-import base.Base;
+import baseStep.Base;
 import eFinancialCareersPages.HomePage;
 import eFinancialCareersPages.ProfilePage;
 import io.cucumber.java.en.And;
