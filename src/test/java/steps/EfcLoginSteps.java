@@ -8,8 +8,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import testData.User;
-import testData.UserData;
+import readData.User;
+import readData.UserData;
 
 import java.io.File;
 import java.io.IOException;
@@ -55,7 +55,7 @@ public class EfcLoginSteps extends Base {
     public void jsonSetup() throws IOException {
         // Read JSON data and load it into the 'users' list
         ObjectMapper objectMapper = new ObjectMapper();
-        UserData userData = objectMapper.readValue(new File("C:\\Users1\\Emumba\\IdeaProjects\\CucumberAssignment\\src\\test\\resources\\testData\\credentials.json"), UserData.class);
+        UserData userData = objectMapper.readValue(new File("C:\\Users\\Emumba\\IdeaProjects\\CucumberAssignment\\src\\test\\resources\\testData\\credentials.json"), UserData.class);
         users = userData.getUsers();
     }
 }

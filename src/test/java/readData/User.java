@@ -1,4 +1,4 @@
-package testData;
+package readData;
 
 public class User {
     private String email;
