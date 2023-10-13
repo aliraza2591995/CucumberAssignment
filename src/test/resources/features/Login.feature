@@ -4,6 +4,11 @@ Feature: Login Functionality
   User tries to login
   Using a valid and invalid email ID
 
+#  Scenario: Login
+#    Given User is on the SignIn page of eFinancialCareers
+#    When User enters email and password
+#    Then User should be logged in
+
   Scenario Outline: Login
     Given User is on the SignIn page of eFinancialCareers
     When User enters '<email>' and '<password>'
