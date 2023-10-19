@@ -15,8 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
-
+import static org.junit.Assert.assertEquals;
 public class EfcLoginSteps extends Base {
     private List<User> users;
     private WebDriver driver = Base.setup();

@@ -11,9 +11,8 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 public class EfcJobApplicationSteps extends Base{
     private WebDriver driver = Base.setup();
     private final HomePage homePage = new HomePage(driver);

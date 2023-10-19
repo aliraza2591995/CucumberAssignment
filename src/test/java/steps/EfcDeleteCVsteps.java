@@ -12,8 +12,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.testng.Assert.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 public class EfcDeleteCVsteps extends Base{
     private WebDriver driver = Base.setup();
     private final HomePage homePage = new HomePage(driver);
