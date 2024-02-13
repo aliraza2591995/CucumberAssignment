@@ -1,0 +1,24 @@
+name : Automation e2e Pipeline
+run-name : build, deploy and test by user @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+   build:
+     runs-on : ubuntu-latest
+     steps:
+        - uses : action/checkout@v3
+
+        - name : set up JDK 11
+          uses : action/setup-java@v3
+          with:
+              java-version : '11'
+              distribution : 'temurin'
+              cache : maven
+
+        - name : Run unit Test
+        - run: mvn clean verify
+     
+      
+  
